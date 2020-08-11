@@ -19,5 +19,9 @@
   <project remote="github" revision="master" name="OSSystemsEmbeddedLinux/ye" path="sources/ye"/>
 
   <!-- ### Project specific configuration ### -->
-  <project remote="github" name="OSSystemsEmbeddedLinux/ossystems-embedded-linux-platform" path="sources/platform"/>
+  <project remote="github" name="Automation-One/a1-embedded-linux-platform" path="sources/platform"/>
+  <project remote="github" name="Automation-One/meta-a1" path="sources/meta-a1"/>
+  <project remote="github" name="freescale/meta-freescale" path="sources/meta-freescale"/>
+  <project remote="github" name="UpdateHub/meta-updatehub" path="sources/meta-updatehub"/>
+  <project remote="oe" name="meta-openembedded" path="sources/meta-openembedded"/>
 </manifest>
