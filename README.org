@@ -68,6 +68,54 @@ Note that you need to run the command above for all new terminal, the loaded
 variables are only visible to the terminal that you source the ~setup-environment~
 script.
 
+
+* Automation One i.MX6ULL Rev. 1 - ~imx6ull-a1-r1~
+
+** Building the image
+
+The /meta-a1/ layer provides the /a1-image-base/ image recipe, that has the basic
+packages to boot the board and to support the main functionalities.
+
+To build the image run:
+#+BEGIN_SRC bash
+  bitbake a1-image-base
+#+END_SRC
+
+This process can take a long time depending on your host machine.
+
+When the image is ready, the resulted files are available in the ~deploy~
+directory. By default it is located in ~build/tmp/deploy/images/imx6ull-a1-r1/~.
+
+** Building the NAND installer image
+
+The Automation One i.MX6ULL Rev. 1 board uses a raw /NAND/ device as storage. To
+use the board, you need to flash the image to the /NAND/ device. The /meta-a1/
+provides an installer image recipe to make this process easier.
+
+To build the image installer run:
+#+BEGIN_SRC sh
+  bitbake a1-image-installer-nand
+#+END_SRC
+
+The resulted files are in the same location that ~a1-image-base~, ~build/tmp/deploy/images/imx6ull-a1-r1/~.
+
+To use this image you need to flash it to a /SD card/ using the following command:
+#+BEGIN_SRC bash
+  zcat build/tmp/deploy/images/imx6ull-a1-r1/a1-image-installer-nand-imx6ull-a1-r1.wic.gz | sudo dd of=/dev/sdX bs=4M
+#+END_SRC
+
+The ~sdX~ is the device that /SD card/ was addressed in you host machine, you can check your using the ~dmesg~ command.
+
+** Flashing the image to NAND device
+
+With the ~a1-image-installer-nand~ image flashed to the /SD card/, insert the /SD card/
+on the board and power up it. You'll see that the /A/ led will start to blink,
+this indicates that the installation process is running. The installation
+process finishes when the /A/ led is off. You can remove the power source and
+remove the /SD card/.
+
+Now, power up the board again and the system will boot from the /NAND/ device.
+
 * References
 - [[https://github.com/CollaborativeWritersHub/heading-for-the-yocto-project/releases/download/18.10.0/Heading-for-the-Yocto-Project.pdf][Heading for the Yocto Project]]
 - [[https://www.amazon.com/dp/B0751HKPB4][Embedded Linux Development using Yocto Projects - Second Edition]]
