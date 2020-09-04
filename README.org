@@ -61,6 +61,11 @@ Before starting to work you need to load the YP variables to run bitbake
 command:
 
 #+BEGIN_SRC bash
+  MACHINE=imx6ull-a1-r1 source setup-environment build
+#+END_SRC
+
+To check all possible values for ~MACHINE~ variable see the output of command:
+#+BEGIN_SRC bash
   source setup-environment build
 #+END_SRC
 
