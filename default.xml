@@ -17,6 +17,7 @@
   </project>
 
   <project remote="github" revision="master" name="OSSystemsEmbeddedLinux/ye" path="sources/ye"/>
+  <project remote="github" revision="master" name="rust-embedded/meta-rust-bin" path="sources/meta-rust-bin"/>
 
   <!-- ### Project specific configuration ### -->
   <project remote="github" name="Automation-One/a1-embedded-linux-platform" path="sources/platform"/>
